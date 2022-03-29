@@ -1,0 +1,24 @@
+<form enctype="multipart/form-data" method="post">
+
+     {% csrf_token%}
+     {%for campo in formulario%}
+
+    <div class="form-group">
+        <label for="">{{campo.label}}</label>
+        <input
+                type="{{campo.field.widget.input_type}}"
+               class="form-control"
+                name="{{campo.name}}"
+               id=""
+               aria-describedby="helpId"
+               placeholder="{{campo.label}}"
+                value="{{campo.value }}"
+        />
+    </div>
+
+    <div class="col-12 help-text"> {{campo.errors}}</div>
+     {% endfor %}
+
+    <input name="" id="" class="btn btn-success" type="submit" value="Enviar Informacion">
+    <a name="" id="" class="btn btn-primary" href="{% url 'libros' %}" role="button">Cancelar</a>
+</form>
